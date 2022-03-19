@@ -14,6 +14,31 @@ def mission():
 def slogan():
     return 'И на Марсе будут яблони цвести!'
 
+@app.route('/choice/<planet_name>')
+def planet_choice(planet_name):
+    if planet_name.lower() == 'земля':
+        return f'{planet_name}? А вы откуда?'
+    else:
+        return f"""<!doctype html>
+                <html lang="en">
+                  <head>
+                    <meta charset="utf-8">
+                    <title>Привет, Марс!</title>
+                    <link rel="stylesheet" 
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                    crossorigin="anonymous">
+                    <link rel="stylesheet" href="{url_for('static', filename='css/style.css')}">
+                  </head>
+                  <body>
+                  <div class="container">
+                    <h1>{planet_name}</h1>
+                    <h2 class="alert alert-primary">Хороший вариант</h2>
+                    <h3 class="alert alert-primary"\>Мы рассмотрим этот вариант</h3>
+                    </div>
+                  </body>
+                </html>"""
+
 
 @app.route('/promotion')
 def promotion():
