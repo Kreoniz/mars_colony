@@ -1,6 +1,5 @@
 from flask import Flask, url_for
-import os
-print(os.listdir())
+
 
 app = Flask(__name__)
 
@@ -14,6 +13,34 @@ def mission():
 def slogan():
     return 'И на Марсе будут яблони цвести!'
 
+@app.route('/results/<nickname>/<int:level>/<float:rating>')
+def selection_results(nickname, level, rating):
+    return f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Результаты</title>
+        <link rel="stylesheet" 
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                    crossorigin="anonymous">
+        <link rel="stylesheet" href="{url_for('static', filename='css/style.css')}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Результаты отбора</h1>
+            <h2>Пользователь {nickname} </h2>
+            <h3>Этап отбора: {level}</h3>
+            <h4>Рейтинг: {rating}</h4>
+            <p class="alert alert-secondary">Не люблю bootstrap</p>
+            <div class="concealed">HTML, CSS and JAVASCRIPT FOREVER</div>
+
+        </div>
+    </body>
+    </html>"""
+
 @app.route('/choice/<planet_name>')
 def planet_choice(planet_name):
     if planet_name.lower() == 'земля':
@@ -23,7 +50,7 @@ def planet_choice(planet_name):
                 <html lang="en">
                   <head>
                     <meta charset="utf-8">
-                    <title>Привет, Марс!</title>
+                    <title>Выбор планеты</title>
                     <link rel="stylesheet" 
                     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
                     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 

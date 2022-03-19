@@ -84,3 +84,12 @@ button{
 button:hover{
     text-decoration: underline;
 }
+.concealed{
+    color: #000000;
+    background: #000000;
+    width: 80%;
+    height: 40px;
+}
+.concealed:hover{
+    background: #cccccc;
+}
