@@ -20,7 +20,11 @@ body{
     background: url('../img/space_texture.jpg') 0 0 repeat fixed;
 }
 h1{
-    color: red;
+    font-weight: 600;
+}
+img{
+    padding: 20px 0 20px;
+    max-width: 500px;
 }
 .container{
     padding: 50px 20px 0px;
