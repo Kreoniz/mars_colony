@@ -22,10 +22,6 @@ body{
 h1{
     font-weight: 600;
 }
-img{
-    padding: 20px 0 20px;
-    max-width: 500px;
-}
 .container{
     padding: 50px 20px 0px;
     max-width: 800px;
@@ -70,9 +66,7 @@ input.input-radio{
     height: 18px;
     margin: 3px;
 }
-div{
-    margin: 40px 0 40px;
-}
+
 textarea{
     width: 80%;
     margin: auto;
