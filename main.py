@@ -1,4 +1,5 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, request
+import os
 
 
 app = Flask(__name__)
@@ -117,70 +118,128 @@ def promotion_image():
                   </body>
                 </html>"""
 
-@app.route('/astronaut_selection')
-def astronaut_selection():
-    return f"""<!DOCTYPE html>
+@app.route('/load_photo', methods=['GET', 'POST'])
+def load_photo():
+    file = request.files['photo']
+    if request.method == 'GET':
+        return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <title>Анкета</title>
+    <title>PHOTO</title>
     <link rel="stylesheet" href="{url_for('static', filename='css/style.css')}">
 </head>
 <body>
     <div class="container">
-        <h1 class="application">Анкета отбора кандидатов</h1>
-        <p class="application">Для участия в миссии</p>
+        <h1>Загрузка фотографии</h1>
+        <br>
         <form action="#" method="post" enctype="multipart/form-data">
-            <div>
-                <p class="input-text"><input placeholder="Введите фамилию" type="text" name="surname"></p>
-                <p class="input-text"><input placeholder="Введите имя" type="text" name="name"></p>
-                <p class="input-email"><input placeholder="Введите адрес почты" type="text" name="email"></p>
-            </div>
-            <div>
-                <p class="text">Какое у вас образование?</p>
-                <select name="education">
-                    <option value="high">Высшее</option>
-                    <option value="primary">Среднее</option>
-                    <option value="banana">Я банан</option>
-                </select>
-            </div>
-            <div class="profession">
-                <p class="text">Выберите Вашу профессию:</p>
-                <p><input class="input-checkbox" type="checkbox" name="engineer-explorer">инженер-исследователь</p>
-                <p><input class="input-checkbox" type="checkbox" name="pilot">пилот</p>
-                <p><input class="input-checkbox" type="checkbox" name="builder">строитель</p>
-                <p><input class="input-checkbox" type="checkbox" name="exobiologist">экзобиолог</p>
-                <p><input class="input-checkbox" type="checkbox" name="doctor">врач</p>
-                <p><input class="input-checkbox" type="checkbox" name="terraformation-engineer">инженер по терраформированию</p>
-                <p><input class="input-checkbox" type="checkbox" name="climatologist">климатолог</p>
-                <p><input class="input-checkbox" type="checkbox" name="astrogeologist">астрогеолог</p>
-                <p><input class="input-checkbox" type="checkbox" name="glaciologist">гляциолог</p>
-                <p><input checked class="input-checkbox" type="checkbox" name="programmer">программист</p>
-                <p><input class="input-checkbox" type="checkbox" name="">...</p>
-            </div>
-            <div class="sex">
-                <p class="text">Укажите пол</p>
-                <p><input class="input-radio" type="radio" name="sex" value="male">Мужской</p>
-                <p><input class="input-radio" type="radio" name="sex" value="female">Женский</p>
-            </div>
-            <div class="additional-info">
-                <p class="text">Почему Вы хотите принимаете участие в миссии?</p>
-                <textarea name="info" placeholder="Y?"></textarea>
-            </div>
-            <div class="photo">
-                <p class="text">Пришлите нам свою фотографию</p>
-                <input type="file" name="photo">
-            </div>
-            <p><input class="input-checkbox" type="checkbox" name="live_on_mars">Готовы ли вы остаться на Марсе?</p>
+            <p class="text">Приложите вашу фотографию:</p>
+            <div><input type="file" name="photo"></div>
             <div>
                 <button type="submit">Принять</button>
-                <button type="reset">Сбросить</button>
+                <button type="reset">Отменить</button>
             </div>
         </form>
     </div>
 </body>
-</html>"""
+</html>'''
+    elif request.method == 'POST':
+        try:
+            print(file)
+            file.save(os.path.join('static/img/', 'pic.jpg'))
+        except Exception:
+            pass
+        return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>PHOTO</title>
+    <link rel="stylesheet" href="{url_for('static', filename='css/style.css')}">
+</head>
+<body>
+    <div class="container">
+        <h1>Загрузка фотографии</h1>
+        <br>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <p class="text">Приложите вашу фотографию:</p>
+            <input type="file" name="photo">
+            <img src="{url_for('static', filename='img/pic.jpg')}" alt="Вас не видно!">
+            <div>
+                <button type="submit">Принять</button>
+                <button type="reset">Отменить</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>'''
+
+@app.route('/astronaut_selection')
+def astronaut_selection():
+        return f"""<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Анкета</title>
+        <link rel="stylesheet" href="{url_for('static', filename='css/style.css')}">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="application">Анкета отбора кандидатов</h1>
+            <p class="application">Для участия в миссии</p>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <div>
+                    <p class="input-text"><input placeholder="Введите фамилию" type="text" name="surname"></p>
+                    <p class="input-text"><input placeholder="Введите имя" type="text" name="name"></p>
+                    <p class="input-email"><input placeholder="Введите адрес почты" type="text" name="email"></p>
+                </div>
+                <div>
+                    <p class="text">Какое у вас образование?</p>
+                    <select name="education">
+                        <option value="high">Высшее</option>
+                        <option value="primary">Среднее</option>
+                        <option value="banana">Я банан</option>
+                    </select>
+                </div>
+                <div class="profession">
+                    <p class="text">Выберите Вашу профессию:</p>
+                    <p><input class="input-checkbox" type="checkbox" name="engineer-explorer">инженер-исследователь</p>
+                    <p><input class="input-checkbox" type="checkbox" name="pilot">пилот</p>
+                    <p><input class="input-checkbox" type="checkbox" name="builder">строитель</p>
+                    <p><input class="input-checkbox" type="checkbox" name="exobiologist">экзобиолог</p>
+                    <p><input class="input-checkbox" type="checkbox" name="doctor">врач</p>
+                    <p><input class="input-checkbox" type="checkbox" name="terraformation-engineer">инженер по терраформированию</p>
+                    <p><input class="input-checkbox" type="checkbox" name="climatologist">климатолог</p>
+                    <p><input class="input-checkbox" type="checkbox" name="astrogeologist">астрогеолог</p>
+                    <p><input class="input-checkbox" type="checkbox" name="glaciologist">гляциолог</p>
+                    <p><input checked class="input-checkbox" type="checkbox" name="programmer">программист</p>
+                    <p><input class="input-checkbox" type="checkbox" name="">...</p>
+                </div>
+                <div class="sex">
+                    <p class="text">Укажите пол</p>
+                    <p><input class="input-radio" type="radio" name="sex" value="male">Мужской</p>
+                    <p><input class="input-radio" type="radio" name="sex" value="female">Женский</p>
+                </div>
+                <div class="additional-info">
+                    <p class="text">Почему Вы хотите принимаете участие в миссии?</p>
+                    <textarea name="info" placeholder="Y?"></textarea>
+                </div>
+                <div class="photo">
+                    <p class="text">Пришлите нам свою фотографию</p>
+                    <input type="file" name="photo">
+                </div>
+                <p><input class="input-checkbox" type="checkbox" name="live_on_mars">Готовы ли вы остаться на Марсе?</p>
+                <div>
+                    <button type="submit">Принять</button>
+                    <button type="reset">Сбросить</button>
+                </div>
+            </form>
+        </div>
+    </body>
+    </html>"""
 
 
 if __name__ == '__main__':
