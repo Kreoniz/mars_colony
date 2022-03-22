@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ css_dest }}">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <h1>Миссия Колонизация Марса</h1>
+    <h4 class="text">И на Марсе будут яблони цвести!</h4>
+    {% if list == "ol" %}
+        <ol class="list">
+            <li>инженер-исследователь</li>
+            <li>пилот</li>
+            <li>строитель</li>
+            <li>экзобиолог</li>
+            <li>врач</li>
+            <li>инженер по терраформированию</li>
+            <li>климатолог</li>
+            <li>астрогеолог</li>
+            <li>гляциолог</li>
+            <li>программист</li>
+        </ol>
+    {% elif list == "ul" %}
+        <ul class="list">
+            <li>инженер-исследователь</li>
+            <li>пилот</li>
+            <li>строитель</li>
+            <li>экзобиолог</li>
+            <li>врач</li>
+            <li>инженер по терраформированию</li>
+            <li>климатолог</li>
+            <li>астрогеолог</li>
+            <li>гляциолог</li>
+            <li>программист</li>
+        </ul>
+    {% else %}
+        <p class="text">wrong parameter</p>
+    {% endif %}
+        </body>
+</html>

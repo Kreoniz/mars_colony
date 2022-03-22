@@ -27,6 +27,15 @@ def training(prof):
     
     return render_template('training.html', **params)
 
+@app.route('/list_prof/<list>')
+def list_prof(list):
+    params = {}
+    params['list'] = list
+    params['css_dest'] = url_for('static', filename='css/style.css')
+    return render_template('prof_list.html', **params)
+
+
+
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')

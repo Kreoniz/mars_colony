@@ -29,3 +29,13 @@ img{
     margin: 20px 0px 20px;
     font-size: 18px;
 }
+.list{
+    padding: 10px 0 10px;
+    font-size: 18px;
+}
+.list li{
+    padding: 3px 0 0;
+}
+ul li{
+    list-style: circle;
+}
