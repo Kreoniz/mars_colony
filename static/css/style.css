@@ -22,9 +22,10 @@ h1{
     font-size: 20px;
     font-weight: 700;
 }
-h4{
-    font-size: 18px;
+img{
+    max-width: 1000px;
 }
 .text{
     margin: 20px 0px 20px;
+    font-size: 18px;
 }
