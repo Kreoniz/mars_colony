@@ -6,8 +6,16 @@
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 </head>
 <body>
-    <h1>Миссия Колонизация Марса</h1>
-    <h4 class="text">И на Марсе будут яблони цвести!</h4>
-    <div class="content"></div>
+    <header class="header">
+        <div class="header__text">
+            <h1>Миссия Колонизация Марса</h1>
+            <h4 class="text">И на Марсе будут яблони цвести!</h4>
+        </div>
+    </header>
+    <!-- Beginning of a page's content -->
+    <main role="main" class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

@@ -15,8 +15,20 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 /*--------------------*/
 
-body{
-    padding: 30px;
+.header{
+    position: fixed;
+    width: 100%;
+    background: url('../img/css_cycled.gif') 0 0/auto auto repeat;
+    margin: 0px 0px 15px 0px;
+}
+.header__text{
+    width: 30%;
+    margin: 5px auto 5px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px;
+    border: 2px solid #000;
+    text-align: center;
 }
 h1{
     font-size: 20px;
