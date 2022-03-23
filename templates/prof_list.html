@@ -6,8 +6,9 @@
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 </head>
 <body>
-    <h1>Миссия Колонизация Марса</h1>
-    <h4 class="text">И на Марсе будут яблони цвести!</h4>
+    {% extends "base.html" %}
+
+    {% block content %}
     {% if list == "ol" %}
         <ol class="list">
             <li>инженер-исследователь</li>
@@ -37,5 +38,7 @@
     {% else %}
         <p class="text">wrong parameter</p>
     {% endif %}
+    {% endblock %}
+
         </body>
 </html>

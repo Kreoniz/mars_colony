@@ -33,6 +33,7 @@ def list_prof(list):
     params['list'] = list
     params['css_dest'] = url_for('static', filename='css/style.css')
     return render_template('prof_list.html', **params)
+    
 
 
 

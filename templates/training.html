@@ -6,9 +6,11 @@
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 </head>
 <body>
-    <h1>Миссия Колонизация Марса</h1>
-    <h4 class="text">И на Марсе будут яблони цвести!</h4>
+    {% extends "base.html" %}
+
+    {% block content %}
     <p class="text">{{ text }}</p>
     <img src="{{ pic_dest }}" alt="image missing">
+    {% endblock %}
 </body>
 </html>
