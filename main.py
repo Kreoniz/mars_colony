@@ -33,7 +33,24 @@ def list_prof(list):
     params['list'] = list
     params['css_dest'] = url_for('static', filename='css/style.css')
     return render_template('prof_list.html', **params)
-    
+
+@app.route('/auto_answer')
+@app.route('/answer')
+def answer():
+    params = {
+        'title': 0,
+        'surname': 'Sanderson',
+        'name': 'Grant',
+        'education': 'Bachelor of Education',
+        'profession': 'Программист',
+        'sex': 'Мужской',
+        'motivation': 'На звездочки посмотреть',
+        'ready': True
+    }
+    params['title'] = 'Анкета'
+    params['css_dest'] = url_for('static', filename='css/style.css')
+
+    return render_template('auto_answer.html', **params)
 
 
 

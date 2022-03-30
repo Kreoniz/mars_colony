@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ css_dest }}">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <div class="indent">
+        <p>Фамилия: {{surname}}</p>
+        <p>Имя: {{name}}</p>
+        <p>Образование: {{education}}</p>
+        <p>Профессия: {{profession}}</p>
+        <p>Пол: {{sex}}</p>
+        <p>Мотивация: {{motivation}}</p>
+        {% if ready %}
+        <p>Готов остаться на Марсе</p>
+        {% else %}
+        <p>Хотелось бы вернуться домой</p>
+        {% endif %}
+    </div>
+    {% endblock %}
+
+        </body>
+</html>

@@ -17,10 +17,21 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 .header{
     position: fixed;
+    opacity: 1;
+    transition: opacity .5s linear;
     width: 100%;
     background: url('../img/css_cycled.gif') 0 0/auto auto repeat;
     top: 0px;
     margin: 0px 0px 15px 0px;
+}
+.header:hover{
+    opacity: 0;
+    transition: opacity .5s linear;
+}
+.indent{
+    text-indent: 20px;
+    font-size: 24px;
+    line-height: 32px;
 }
 .header__text{
     width: 30%;
