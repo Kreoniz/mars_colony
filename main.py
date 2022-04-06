@@ -27,6 +27,16 @@ def training(prof):
     
     return render_template('training.html', **params)
 
+
+@app.route('/login')
+def login():
+    params = {}
+    params['title'] = 'Аварийный доступ'
+    params['css_dest'] = url_for('static', filename='css/style.css')
+    return render_template('emergency_login.html', **params)
+
+
+
 @app.route('/list_prof/<list>')
 def list_prof(list):
     params = {}
@@ -45,7 +55,7 @@ def answer():
         'profession': 'Программист',
         'sex': 'Мужской',
         'motivation': 'На звездочки посмотреть',
-        'ready': True
+        'ready': True   
     }
     params['title'] = 'Анкета'
     params['css_dest'] = url_for('static', filename='css/style.css')

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ css_dest }}">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <form action="#" method="post">
+    <img src="../static/img/MARS-2-7.png" alt="EMBLEM">
+        <span class="bold">Аварийный доступ</span>
+        <p class="text">id астронавта</p>
+        <input class="input_text" type="text" name="austronaut_name">
+        <p class="text">Пароль астронавта</p>
+        <input class="input_text" type="text" name="austronaut_pass">
+        <p class="text">id капитана</p>
+        <input class="input_text" type="text" name="captain_name">
+        <p class="text">Пароль капитана</p>
+        <input class="input_text" type="text" name="captain_pass">
+    </form>
+    {% endblock %}
+
+        </body>
+</html>
