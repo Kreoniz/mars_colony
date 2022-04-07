@@ -27,7 +27,6 @@ def training(prof):
     
     return render_template('training.html', **params)
 
-
 @app.route('/login')
 def login():
     params = {}
@@ -42,9 +41,15 @@ def distribution():
     params['css_dest'] = url_for('static', filename='css/style.css')
     params['user_list'] = ['Elon Musk', 'Jeff Bezos', 'Michael Jordan', 'Lex Fridman', 'Tim Urban', 'Mark Zuckerberg']
     return render_template('cabins.html', **params)
-    
 
-
+@app.route('/table/<sex>/<int:age>')
+def cabin_color(sex, age):
+    params = {}
+    params['title'] = 'Цвет каюты'
+    params['css_dest'] = url_for('static', filename='css/style.css')
+    params['sex'] = sex
+    params['age'] = age
+    return render_template('cabin_color.html', **params)
 
 @app.route('/list_prof/<list>')
 def list_prof(list):
@@ -70,8 +75,6 @@ def answer():
     params['css_dest'] = url_for('static', filename='css/style.css')
 
     return render_template('auto_answer.html', **params)
-
-
 
 
 if __name__ == '__main__':

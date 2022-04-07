@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ css_dest }}">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <h2>Оформление каюты</h2>
+    <div class="block_pic">
+        <p class="text"><span class="block_pic_color">Цвет каюты</span><span class="block_pic_emblem">Эмблема</span></p>
+        {% if sex == 'male' %}
+        <div class="color__male"></div>
+        {% elif sex == 'female' %}
+        <div class="color__female"></div>
+        {% endif %}
+        {% if age < 21 %}
+        <div class="underaged"></div>
+        {% elif age >= 21 %}
+        <div class="adult"></div>
+        {% endif %}
+    </div>
+    {% endblock %}
+</body>
+</html>

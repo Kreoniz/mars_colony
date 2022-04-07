@@ -17,6 +17,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 .header{
     position: fixed;
+    z-index: 999;
     opacity: 1;
     transition: opacity .5s linear;
     width: 100%;
@@ -27,6 +28,46 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 .bold{
     font-weight: 600;
     font-size: 26px;
+}
+.block_pic{
+    position: relative;
+    margin: auto;
+    width: 80%;
+    min-height: 600px;
+}
+.block_pic_emblem{
+    padding: 0px 0px 0px 25%;
+}
+.block_pic_color{
+    padding: 0px 25% 0px 0px;
+}
+.underaged {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0px;
+    background: url('../img/baby_alien.webp') 0 0 no-repeat;
+}
+.adult {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0px;
+    background: url('../img/adult_alien.webp') 0 0 no-repeat;
+}
+.color__male{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0px;
+    background: blue 0 0 no-repeat;
+}
+.color__female{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0px;
+    background: red 0 0 no-repeat;
 }
 .input_text{
     border: 2px solid #000;
