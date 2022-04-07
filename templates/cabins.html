@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ css_dest }}">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <p class="text">Размещение по каютам</p>
+    {% for user in user_list %}
+    <p class="text">{{ user }} - Каюта №{{ loop.index }} {% if loop.first %} - капитан корабля {% endif %}</p>
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>

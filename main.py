@@ -35,6 +35,15 @@ def login():
     params['css_dest'] = url_for('static', filename='css/style.css')
     return render_template('emergency_login.html', **params)
 
+@app.route('/distribution')
+def distribution():
+    params = {}
+    params['title'] = 'По каютам!'
+    params['css_dest'] = url_for('static', filename='css/style.css')
+    params['user_list'] = ['Elon Musk', 'Jeff Bezos', 'Michael Jordan', 'Lex Fridman', 'Tim Urban', 'Mark Zuckerberg']
+    return render_template('cabins.html', **params)
+    
+
 
 
 @app.route('/list_prof/<list>')
