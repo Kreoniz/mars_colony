@@ -25,6 +25,13 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     top: 0px;
     margin: 0px 0px 15px 0px;
 }
+.form{
+    margin: 30px auto 0px;
+
+}
+.form_submit{
+    margin: 15px 0px 0px 0px;
+}
 .bold{
     font-weight: 600;
     font-size: 26px;

@@ -1,7 +1,27 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, redirect
+from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
+import os
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileRequired, FileAllowed
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
+
+
+basedir = os.path.abspath(os.path.dirname(__file__)) + '/static'
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+app.config['UPLOADED_PHOTOS_DEST'] = os.path.join(basedir, 'uploads') # you'll need to create a folder named uploads
+
+
+photos = UploadSet('photos', IMAGES)
+configure_uploads(app, photos)
+patch_request_class(app)  # set maximum file size, default is 16MB
+
+class PictureForm(FlaskForm):
+    photo = FileField(validators=[FileAllowed(photos, 'Image only!'), FileRequired('File was empty!')])
+    submit = SubmitField('Upload')
 
 
 @app.route('/<name>')
@@ -57,6 +77,28 @@ def list_prof(list):
     params['list'] = list
     params['css_dest'] = url_for('static', filename='css/style.css')
     return render_template('prof_list.html', **params)
+
+@app.route('/galery', methods=['GET', 'POST'])
+def galery():
+    form = PictureForm()
+
+    if form.validate_on_submit():
+        filename = photos.save(form.photo.data)
+        file_url = photos.url(filename)
+        with open('images.txt', 'a') as f:
+            f.write(filename + '\n')
+    else:
+        file_url = None
+
+    params = {}
+    params['title'] = 'galery'
+    params['css_dest'] = url_for('static', filename='css/style.css')
+    with open('images.txt', 'rt') as f:
+        data = [url_for('static', filename='uploads/' + line.strip()) for line in f.readlines()]
+        print(data)
+    params['uploaded_images'] = data
+    return render_template('mars_landscape.html', **params, form=form, file_url=file_url)
+
 
 @app.route('/auto_answer')
 @app.route('/answer')
