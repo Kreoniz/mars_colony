@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ css_dest }}">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+</head>
+
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <div class="member-center">
+        {% set member_info = data|random %}
+        <h2 class="member-header">{{member_info["name"]}} {{member_info["surname"]}}</h2>
+        <img class="member-image" src="./static/img/members/{{member_info['image']}}"
+            alt="./static/img/members/{{member_info['image']}}">
+        {% for specialty in member_info["specialties"] %}
+        <ul class="member-specialties">
+            <li>{{specialty}}</li>
+        </ul>
+        {% endfor %}
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

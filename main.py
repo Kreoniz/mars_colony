@@ -5,6 +5,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+import json
 
 
 basedir = os.path.abspath(os.path.dirname(__file__)) + '/static'
@@ -53,6 +54,15 @@ def login():
     params['title'] = 'Аварийный доступ'
     params['css_dest'] = url_for('static', filename='css/style.css')
     return render_template('emergency_login.html', **params)
+
+@app.route('/member')
+def member():
+    params = {}
+    params['title'] = 'Рандомный чел, позитивный'
+    params['css_dest'] = url_for('static', filename='css/style.css')
+    json_data = open('templates/members.json')
+    data = json.load(json_data)
+    return render_template('member.html', **params, data=data)
 
 @app.route('/distribution')
 def distribution():

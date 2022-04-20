@@ -1,0 +1,26 @@
+[
+    {
+        "name": "WiFi",
+        "surname": "Internet",
+        "image": "wifi.png",
+        "specialties": ["keeping connection stable", "working 24/7"]
+    },
+    {
+        "name": "Elon",
+        "surname": "Musk",
+        "image": "elon_musk.jpg",
+        "specialties": ["engineer", "economist", "genius"]
+    },
+    {
+        "name": "Grant",
+        "surname": "Sanderson",
+        "image": "grant_sanderson.png",
+        "specialties": ["mathematician", "educator"]
+    },
+    {
+        "name": "Linus",
+        "surname": "Torvalds",
+        "image": "linus_torvalds.jpg",
+        "specialties": ["Linux' papa", "enjoying programming at the free time"]
+    }
+]
