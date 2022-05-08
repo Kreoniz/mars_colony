@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/job_journal.css')}}">
+    <title>Jobs</title>
+</head>
+
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="works_log">
+        <h1>Works log</h1>
+        {% for job in job_list %}
+        <h2>Action #{{loop.index}}</h2>
+        <div class="job-description">
+            <div class="job-title">
+                <h3>Title of activity</h3>
+                <p>{{job["job"]}}</p>
+
+            </div>
+            <div class="job-teamleader">
+                <h3>Team Leader</h3>
+                <p>{{job["team_leader"]}}</p>
+
+            </div>
+            <div class="job-duration">
+                <h3>Duration</h3>
+                <p>{{job["duration"]}}</p>
+
+            </div>
+            <div class="job-collaborators">
+                <h3>List of collaborators</h3>
+                <p>{{job["collaborators"]}}</p>
+
+            </div>
+            <div class="job-isfinished">
+                <h3>is finished</h3>
+                <p>{{job["is_finished"]}}</p>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

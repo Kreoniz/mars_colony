@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__text">
+            <h1 class="header-title">Миссия Колонизация Марса</h1>
+            <h2 class="header-subtitle">И на Марсе будут яблони цвести!</h2>
+        </div>
+    </header>
+    <!-- Beginning of a page's content -->
+    <main role="main" class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+
+</html>

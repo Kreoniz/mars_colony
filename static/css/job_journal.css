@@ -1,0 +1,28 @@
+@import url("nullstyle.css");
+
+h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 28px;
+    margin: 0px 0px 30px 0px;
+}
+.works_log {
+    font-size: 20px;
+    padding: 40px;
+}
+.works_log h2 {
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.job-description {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #000;
+}
+.job-description h3 {
+    font-weight: 600;
+    margin: 0 0 10px;
+}

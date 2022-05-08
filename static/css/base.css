@@ -1,0 +1,36 @@
+.header {
+    position: fixed;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+    width: 100%;
+    background: url("../img/css_cycled.gif") 0 0 / auto auto repeat;
+    top: 0px;
+    margin: 0px 0px 15px 0px;
+}
+
+.header:hover {
+    opacity: 0;
+    transition: opacity 0.5s linear;
+}
+
+.header__text {
+    width: 30%;
+    margin: 5px auto 5px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px;
+    border: 2px solid #000;
+    text-align: center;
+}
+.container {
+    margin: 150px 20px 0;
+}
+.header-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+.header-subtitle {
+    margin: 20px 0px 20px;
+    font-size: 20px;
+}
