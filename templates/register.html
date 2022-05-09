@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css')}}">
+    <title>Jobs</title>
+</head>
+
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <form method="post" action="" enctype="multipart/form-data" class="form">
+        <h1 class="form-title">Register Form</h1>
+        <h2 class="form-subtitle">email</h2>
+        <input class="input-text" type="text" name="email">
+        <h2 class="form-subtitle">password</h2>
+        <input class="input-text" type="text" name="password">
+        <h2 class="form-subtitle">Confirm password</h2>
+        <input class="input-text" type="text" name="confirmed_password">
+        <h2 class="form-subtitle">name</h2>
+        <input class="input-text" type="text" name="name">
+        <h2 class="form-subtitle">surname</h2>
+        <input class="input-text" type="text" name="surname">
+        <h2 class="form-subtitle">age</h2>
+        <input class="input-text" type="text" name="age">
+        <h2 class="form-subtitle">position</h2>
+        <input class="input-text" type="text" name="position">
+        <h2 class="form-subtitle">specialty</h2>
+        <input class="input-text" type="text" name="specialty">
+        <h2 class="form-subtitle">address</h2>
+        <input class="input-text" type="text" name="address">
+
+        <div class="buttons">
+            <button class="button-submit" type="submit">submit</button>
+            <button class="button-reset" type="reset">reset</button>
+        </div>
+    </form>
+
+    {% endblock %}
+</body>
+
+</html>

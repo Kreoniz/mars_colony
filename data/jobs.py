@@ -5,6 +5,9 @@ from .db_session import SqlAlchemyBase
 
 
 class Jobs(SqlAlchemyBase):
+    def __repr__(self):
+        return f"<Job> {self.job}"
+
     __tablename__ = 'jobs'
 
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
@@ -18,4 +21,4 @@ class Jobs(SqlAlchemyBase):
     end_date = sqlalchemy.Column(sqlalchemy.DateTime)
     is_finished = sqlalchemy.Column(sqlalchemy.Boolean)
 
-    user = orm.relation('User')
+    user = orm.relationship('User')

@@ -21,5 +21,5 @@ class User(SqlAlchemyBase):
     hashed_password = sqlalchemy.Column(sqlalchemy.String)
     modified_date = sqlalchemy.Column(sqlalchemy.DateTime)
 
-    # user = orm.relation('User')
-    # jobs = orm.relation('Jobs', back_populates='user')
+    jobs = orm.relationship('Jobs', back_populates='user')
+    departments = orm.relationship('Department', back_populates='user')
